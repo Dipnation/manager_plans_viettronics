@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>    
+Options +FollowSymLinks   
+RewriteEngine on
+##RewriteBase /webapp/
+RewriteRule ^unit-([0-9]+)\.html$ unit.php?id=$1
+RewriteRule ^question-([0-9]+)\.html$ support.php?view=$1
+RewriteRule ^answer-([0-9]+)\.html$ support.php?answer=$1
+RewriteRule ^service-([a-zA-Z0-9_-]+).html$ hoso.php?id=$1
+RewriteRule ^manage-service-([a-zA-Z0-9_-]+).html$ quan-ly-ho-so.php?xuly-hs=$1
+##RewriteRule ^profile-([a-zA-Z0-9_-]+).html$ profile.php?action=$2
+##
+##viet lai URL cho cac file .php
+##
+RewriteRule ^login  login.php [L]
+RewriteRule ^register  register.php [L]
+RewriteRule ^forgotpassword  forgotpassword.php [L]
+
+
+##
+##viet lai URL cho cac file .php trong admin
+##
+
+##tuy bien trang index
+##DirectoryIndex t.php
+
+##Error
+ErrorDocument 404 /404.html
+</IfModule>
+
+
+
