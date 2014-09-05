@@ -7,21 +7,22 @@
 	} else{
 	
 		$errors=array();
-		if(isset($_POST['login_submit'])){
-			$account = $mysqli->real_escape_string($_POST['account']);
+		if(isset($_POST['login_submit'])){ 
+			$email = $mysqli->real_escape_string($_POST['email']);
 			$password = md5($mysqli->real_escape_string($_POST['password']));
 			
-			$check_user = $mysqli->query("SELECT * FROM account WHERE `account` ='$account' and `password` = '$password'"); 
+			$check_user = $mysqli->query("SELECT * FROM account WHERE `email` ='$email' and `password` = '$password'"); 
 			//kiem tra username da duoc dung chua
 			$check_user_row = $check_user->fetch_row();
 			if($check_user_row == 0){
-				$errors[] = "Tài khoản hoặc mật khẩu bạn nhập không đúng";
+				$errors[] = "Email hoặc mật khẩu bạn nhập không đúng";
 			} else{
 				
-				$info_user = $mysqli->query("SELECT * FROM account WHERE account ='$account' and password = '$password'");
+				$info_user = $mysqli->query("SELECT * FROM account WHERE email ='$email' and password = '$password'");
 				$row= $info_user->fetch_object();
 				$_SESSION['lock'] = TRUE;
-				$_SESSION['account'] = $row->account;
+				$_SESSION['account'] = TRUE;
+				$_SESSION['email'] = $row->email;
 				$_SESSION['fullname'] = $row->fullname;
 				$_SESSION['account_id']   = $row->id;
 				$_SESSION['avatar']   = $row->avatar;
@@ -30,6 +31,7 @@
 				// lay thong tin user để chèn vào bảng online
 				$account_id = $_SESSION['account_id'];
 				$unit_id = $_SESSION['unit_id'];
+				$sql_del = $mysqli->query("DELETE FROM `account_online` WHERE `account_id` = $account_id");
 				$sql = $mysqli->query("INSERT INTO account_online(`account_id`,`unit_id`,`time_login`) VALUES ($account_id,$unit_id,CURRENT_TIMESTAMP)");
 				header('location:index.php');
 			}
@@ -59,7 +61,7 @@
 			?>
 			<form role="form" method="post">
 				<div class="form-group has-feedback lg left-feedback no-label">
-				  <input type="text" name="account" class="form-control no-border input-lg rounded" placeholder="Nhập tên tài khoản" autofocus>
+				  <input type="email" name="email" class="form-control no-border input-lg rounded" placeholder="Nhập Email tài khoản" autofocus>
 				  <span class="fa fa-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback lg left-feedback no-label">

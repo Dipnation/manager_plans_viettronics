@@ -20,13 +20,13 @@
 						
 						<!-- Begin button sidebar right toggle -->
 						<div class="btn-collapse-sidebar-right">
-							<i class="fa fa-bullhorn"></i>
+							<i class="fa fa-bullhorn icon-circle icon-primary"></i>
 						</div><!-- /.btn-collapse-sidebar-right -->
 						<!-- End button sidebar right toggle -->
 						
 						<!-- Begin button nav toggle -->
 						<div class="btn-collapse-nav" data-toggle="collapse" data-target="#main-fixed-nav">
-							<i class="fa fa-plus icon-plus"></i>
+							<i class="fa fa-plus icon-plus icon-dinamic"></i>
 						</div><!-- /.btn-collapse-sidebar-right -->
 						<!-- End button nav toggle -->
 						
@@ -36,7 +36,7 @@
 							<li class="dropdown">
 							  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
 							 	 <?php echo '<img src="assets/img/avatar/'.$_SESSION['avatar'].'" class="avatar img-circle" alt="Avatar">'; ?>
-								Hi, <strong><?php echo $_SESSION['fullname'];?></strong>
+								<span style="color:white !important;">Hi, <strong><?php echo $_SESSION['fullname'];?></strong></span>
 							  </a>
 							  <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
 								<li><a href="#fakelink">Account setting</a></li>
@@ -66,7 +66,7 @@
 								<li class="dropdown">
 									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
 										<span class="badge badge-danger icon-count">7</span>
-										<i class="fa fa-bell"></i>
+										<i class="fa fa-bell icon-circle icon-xs icon-primary"></i>
 									</a>
 									<ul class="dropdown-menu square with-triangle">
 										<li>
@@ -131,7 +131,7 @@
 								<li class="dropdown">
 									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
 										<span class="badge badge-warning icon-count">3</span>
-										<i class="fa fa-tasks"></i>
+										<i class="fa fa-tasks icon-circle icon-xs icon-primary"></i>
 									</a>
 									<ul class="dropdown-menu square margin-list-rounded with-triangle">
 										<li>
@@ -191,7 +191,7 @@
 								<li class="dropdown">
 									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
 										<span class="badge badge-success icon-count">9</span>
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-envelope icon-circle icon-xs icon-primary"></i>
 									</a>
 									<ul class="dropdown-menu square margin-list-rounded with-triangle">
 										<li>
@@ -256,7 +256,7 @@
 								<li class="dropdown">
 									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
 										<span class="badge badge-info icon-count">2</span>
-										<i class="fa fa-users"></i>
+										<i class="fa fa-users icon-circle icon-xs icon-primary"></i>
 									</a>
 									<ul class="dropdown-menu square margin-list-rounded with-triangle">
 										<li>
