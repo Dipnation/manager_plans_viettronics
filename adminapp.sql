@@ -14,10 +14,9 @@ CREATE TABLE `unit` (
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `account` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `fullname` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
   `avatar` varchar(50) DEFAULT 'avatar-default.jpg',
   `unit_id` int(11) NOT NULL,
   `status` int(5) DEFAULT '1',
@@ -80,5 +79,11 @@ CREATE TABLE `job_detail` (
 -- ----------------------------
 --  Records 
 -- ----------------------------
-INSERT INTO `account` VALUES ('1','admin','c0b38c91fc630782af1935721b3ce95c','Phạm Tất Đạt','tatdat171@gmail.com','avatar-1.jpg','1','3'), ('2','tienmanh','25f9e794323b453885f5181f1b624d0b','Bùi Tiến Mạnh','manhnb@gmail.com','avatar-2.jpg','2','1'), ('3','nganlove68','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Ngân','ngant@gmail.com','avatar-3.jpg','1','1'), ('4','thaont','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Thảo','thaont@gmail.com','avatar-4.jpg','1','1'), ('5','thongbm','e10adc3949ba59abbe56e057f20f883e','Bùi Minh Thông','thongbm@gmail.com','avatar-5.jpg','3','1'), ('6','phamtatdat','e10adc3949ba59abbe56e057f20f883e','Phạm Tất Đạt','kunny171@gmail.com','avatar-6.jpg','1','1'), ('7','sennguyen','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Sen','sennt@gmail.com','avatar-7.jpg','2','2');
+INSERT INTO `account` VALUES ('1','admin@gmail.com','e10adc3949ba59abbe56e057f20f883e','Phạm Tất Đạt','avatar-1.jpg','1','3'), ('2','manhnb@gmail.com','25f9e794323b453885f5181f1b624d0b','Bùi Tiến Mạnh','avatar-2.jpg','2','1'), ('3','ngant@gmail.com','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Ngân','avatar-3.jpg','1','1'), ('4','thaont@gmail.com','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Thảo','avatar-4.jpg','1','1'), ('5','thongbm@gmail.com','e10adc3949ba59abbe56e057f20f883e','Bùi Minh Thông','avatar-5.jpg','3','1'), ('6','kunny171@gmail.com','e10adc3949ba59abbe56e057f20f883e','Phạm Tất Đạt','avatar-6.jpg','1','1'), ('7','sennt@gmail.com','e10adc3949ba59abbe56e057f20f883e','Nguyễn Thị Sen','avatar-7.jpg','2','2');
 INSERT INTO `unit` VALUES ('1','Cục Thuế','Cục Thuế'), ('2','Cục Xuất Nhập Khẩu','Cục Xuất Nhập Khẩu'), ('3','Cục Hải Quan','Cục Hải Quan'), ('4','Cục Tổng Ngành','Cục Tổng Ngành');
+
+
+
+DROP VIEW IF EXISTS `account_info`;
+CREATE VIEW `account_info` AS
+SELECT account.*, unit.unit_name FROM account JOIN unit WHERE account.unit_id = unit.id;
