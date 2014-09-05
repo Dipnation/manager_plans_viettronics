@@ -180,60 +180,13 @@
 				<div class="tab-content">
 				  <div class="tab-pane fade in active" id="online-user-sidebar">
 					<ul class="sidebar-menu online-user">
-						<li class="static">COMPANY</li>
+						<li class="static">Friend</li>
+						
 						<li><a href="#fakelink">
 							<span class="user-status success"></span>
 							Thomas White 
 						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status success"></span>
-							Doina Slaivici
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status success"></span>
-							Harry Nichols
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status success"></span>
-							Mihaela Cihac
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status success"></span>
-							Harold Chavez
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status warning"></span>
-							Mya Weastell
-						</a></li>
-						<li class="static">FRIENDS</li>
-						<li><a href="#fakelink">
-							<span class="user-status warning"></span>
-							Carl Rodriguez
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status warning"></span>
-							Nikita Carter
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status warning"></span>
-							Mya Weastell
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status danger"></span>
-							Richard Dixon
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status danger"></span>
-							Brenda Fuller
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status success"></span>
-							Doina Slaivici
-						</a></li>
-						<li><a href="#fakelink">
-							<span class="user-status danger"></span>
-							Ryan Ortega
-						</a></li>
+						
 					</ul>
 				  </div>
 				  <div class="tab-pane fade" id="notification-sidebar">

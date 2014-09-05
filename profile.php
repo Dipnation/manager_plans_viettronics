@@ -1,5 +1,5 @@
 <?php
-	include('layout/header.php');
+	include('../layout/header.php');
 
 	if(empty($_SESSION['account'])){
 		 	header('Location: login.php');
@@ -13,8 +13,8 @@
 <body class="tooltips">
 <?php 
 	
-include('layout/narbar.php');
-include('layout/sidebar.php');
+include('../layout/narbar.php');
+include('../layout/sidebar.php');
 
 ?>
 <title>Blank | Cổng thông tin kế hoạch Viettronics </title>

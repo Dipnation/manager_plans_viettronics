@@ -23,11 +23,14 @@
 				$_SESSION['lock'] = TRUE;
 				$_SESSION['account'] = $row->account;
 				$_SESSION['fullname'] = $row->fullname;
-				$_SESSION['idaccount']   = $row->id;
+				$_SESSION['account_id']   = $row->id;
 				$_SESSION['avatar']   = $row->avatar;
 				$_SESSION['unit_id'] = $row->unit_id;
 				$_SESSION['status'] = $row->status;
-				
+				// lay thong tin user để chèn vào bảng online
+				$account_id = $_SESSION['account_id'];
+				$unit_id = $_SESSION['unit_id'];
+				$sql = $mysqli->query("INSERT INTO account_online(`account_id`,`unit_id`,`time_login`) VALUES ($account_id,$unit_id,CURRENT_TIMESTAMP)");
 				header('location:index.php');
 			}
 		}
