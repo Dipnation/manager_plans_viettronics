@@ -35,8 +35,12 @@
 						<ul class="nav-user navbar-right">
 							<li class="dropdown">
 							  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
-							 	 <?php echo '<img src="assets/img/avatar/'.$_SESSION['avatar'].'" class="avatar img-circle" alt="Avatar">'; ?>
-								<span style="color:white !important;">Hi, <strong><?php echo $_SESSION['fullname'];?></strong></span>
+							 	<?php 
+							 		$account_id = $_SESSION['account_id'];
+							 		$sql_u = $mysqli->query("SELECT * FROM `account` WHERE `id` = '$account_id' LIMIT 1 ");
+							 		$obj_u = $sql_u->fetch_object();
+							 	 echo '<img src="assets/img/avatar/'.$obj_u->avatar.'" class="avatar img-circle" alt="Avatar">'; ?>
+								<span style="color:white !important;">Hi, <strong><?php echo $obj_u->fullname;?></strong></span>
 							  </a>
 							  <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
 								<li><a href="#fakelink">Account setting</a></li>
