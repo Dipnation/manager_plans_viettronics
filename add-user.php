@@ -75,7 +75,7 @@ include('layout/sidebar.php');
 				<li class="active"><?php echo $title;?></li>
 			</ol>
 		<!-- End breadcrumb -->
-		
+			<?php if($_SESSION['status'] != 1){ ?>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="the-box">
@@ -121,7 +121,18 @@ include('layout/sidebar.php');
 										<span class="input-group-addon primary"><i class="fa fa-tag"></i></span>
 										<select data-placeholder="Chọn đơn vị..." class="form-control" name="unit" tabindex="2" required>
 											<option disabled selected>Chọn đơn vị...</option>
-											<?php $sql_unit = $mysqli->query("SELECT * FROM `unit`");
+											<?php 
+											/*
+											xu ly them don vi cho nguoi dung
+											Neu la nguoi phu trach dang login ( status = 2) thi chi them duoc nguoi dung cung don vi cua minh
+											Neu admin dang login (status =3) thi them duoc nguoi dung o tat ca cac don vi
+											*/
+											if($_SESSION['status'] ==2){
+												$unit_id = $_SESSION['unit_id'];
+												$sql_unit = $mysqli->query("SELECT * FROM `unit` WHERE `id`='$unit_id' ");
+											}elseif ($_SESSION['status'] ==3) {
+												$sql_unit = $mysqli->query("SELECT * FROM `unit`");
+											}
 											while ($obj_unit= $sql_unit->fetch_object()) {
 												echo '<option value="'.$obj_unit->id.'">'.$obj_unit->unit_name.'</option>';
 											}
@@ -182,6 +193,7 @@ include('layout/sidebar.php');
 				</div>
 
 			</div>
+			<?php } ?>
 
 		</div><!-- /.container-fluid -->
 				

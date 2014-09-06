@@ -5146,6 +5146,30 @@ MAGNIFIC POPUP
 .white-popup.wide {
 	max-width: 1000px;
 }
+.primary-popup {
+	position: relative;
+	background: #34AF90;
+	color:#fff;
+	padding: 25px;
+	width: auto;
+	max-width: 600px;
+	margin: 0 auto;
+}
+.primary-popup.wide {
+	max-width: 1000px;
+}
+.danger-popup {
+	position: relative;
+	background: #E5553B;
+	color:#fff;
+	padding: 25px;
+	width: auto;
+	max-width: 600px;
+	margin: 0 auto;
+}
+.danger-popup.wide {
+	max-width: 1000px;
+}
 .video-popup {
 	position: relative;
 	padding: 30px;

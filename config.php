@@ -1,4 +1,6 @@
 <?php  
+//dia chi trang web
+$base_url = "http://localhost/admin/";
 //Tao ket noi toi DTB
 $host = "localhost"; 
 // tai khoan co so du lieu 

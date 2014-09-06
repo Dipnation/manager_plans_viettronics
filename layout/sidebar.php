@@ -30,7 +30,7 @@
 				
 			</a>
 			<ul class="submenu">
-				<li><a href="view-user.php">Cập nhật hồ sơ<span class="label label-success span-sidebar">UPDATE</span></a></li>
+				<li><a href="edit-user.php?user=<?php echo $_SESSION['account_id'];?>">Cập nhật hồ sơ<span class="label label-success span-sidebar">UPDATE</span></a></li>
 
 			</ul>
 			<a href="#fakelink">
