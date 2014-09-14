@@ -1,26 +1,16 @@
 <?php
 	$unit_id = $_SESSION['unit_id'];
-	$sql = $mysqli->query("SELECT * FROM `account_online` WHERE `unit_id` = $unit_id");
+	$account_id = $_SESSION['account_id'];
+	//danh sach nguoi dung cung don vi dang online
+	$sql_friend = $mysqli->query("SELECT * FROM `account_online` WHERE `unit_id` = '$unit_id' AND `account_id` <> '$account_id'");
+	//danh sach tat ca nguoi dung dang online
+	$sql_sys = $mysqli->query("SELECT * FROM `account_online`");
 ?>			
 			
 <!-- BEGIN SIDEBAR LEFT -->
 <div class="sidebar-left sidebar-nicescroller">
 	<ul class="sidebar-menu">
 		<li><a href="index.html"><i class="fa fa-dashboard icon-sidebar"></i>Dashboard</a></li>
-		<li  class="active selected">
-			<a href="#fakelink">
-				<i class="fa fa-flask icon-sidebar"></i>
-				<i class="fa fa-angle-right chevron-icon-sidebar"></i>
-				Widget UI kits
-			</a>
-			<ul class="submenu visible">
-				<li><a href="widget-default.html">Default</a></li>
-				<li><a href="widget-store.html">Store</a></li>
-				<li><a href="widget-real-estate.html">Real estate <span class="label label-danger span-sidebar">HOT</span></a></li>
-				<li><a href="widget-blog.html">Blog</a></li>
-				<li><a href="widget-social.html">Social <span class="label label-danger span-sidebar">HOT</span></a></li>
-			</ul>
-		</li>
 		<li class="static">NGƯỜI DÙNG</li>
 		<li>
 			<a href="#fakelink">
@@ -33,6 +23,7 @@
 				<li><a href="edit-user.php?user=<?php echo $_SESSION['account_id'];?>">Cập nhật hồ sơ<span class="label label-success span-sidebar">UPDATE</span></a></li>
 
 			</ul>
+			<?php if($_SESSION['status'] !=1){?>
 			<a href="#fakelink">
 				<i class="fa fa-users icon-sidebar"></i>
 				<i class="fa fa-angle-right chevron-icon-sidebar"></i>
@@ -45,8 +36,42 @@
 				<li><a href="edit-user.php">Chỉnh sửa hồ sơ</a></li>
 
 			</ul>
+			<?php } ?>
+		</li>
+		<?php if($_SESSION['status'] ==3){?>
+		<li class="static">ĐƠN VỊ</li>
+		<li>
+			<a href="#fakelink">
+				<i class="fa fa-briefcase icon-sidebar"></i>
+				<i class="fa fa-angle-right chevron-icon-sidebar"></i>
+				Quản lý đơn vị
+				
+			</a>
+			<ul class="submenu">
+				<li><a href="unit-list">Danh sách đơn vị <span class="badge badge-success span-sidebar">5</span></a></li>
+				<li><a href="unit-new">Thêm mới<span class="label label-danger span-sidebar">NEW</span></a></li>
+
+			</ul>
 
 		</li>
+		<?php }?>
+		<?php if($_SESSION['status'] ==3){?>
+		<li class="static">NHÓM CÔNG VIỆC</li>
+		<li>
+			<a href="#fakelink">
+				<i class="fa fa-briefcase icon-sidebar"></i>
+				<i class="fa fa-angle-right chevron-icon-sidebar"></i>
+				Quản lý nhóm công việc
+				
+			</a>
+			<ul class="submenu">
+				<li><a href="unit-list">DS nhóm công việc <span class="badge badge-success span-sidebar">5</span></a></li>
+				<li><a href="unit-new">Thêm mới<span class="label label-danger span-sidebar">NEW</span></a></li>
+
+			</ul>
+
+		</li>
+		<?php }?>
 		<li class="static">CÔNG VIỆC</li>
 		<li>
 			<a href="#fakelink">
@@ -211,12 +236,33 @@
 		<ul class="sidebar-menu online-user">
 			<li class="static">FRIEND</li>
 			<?php 
-				while($obj = $sql->fetch_object()){ 
+				while($obj = $sql_friend->fetch_object()){ 
+					$id = $obj->account_id;
+					$id_user = $mysqli->query("SELECT * FROM `account_info` WHERE `id` = $id LIMIT 1");
+					$obj_name = $id_user->fetch_object();
+				/*	$count_user = $id_user->fetch_row();
+					if($count_user == 0){
+						echo '<li><center><a href="#fakelink">Không có ai</a></center></li>';
+					}*/
+			?>
+					<li><a href="#">
+						<span class="user-status success"></span>
+						<img src="assets/img/avatar/<?php echo $obj_name->avatar;?>" class="ava-sidebar img-circle" alt="Avatar">
+						<?php echo $obj_name->fullname; ?>
+						<span class="small-caps"><?php echo $obj_name->unit_name;?></span>
+					</a></li>
+			<?php
+				}
+			?>
+			<!-- Hien thi nguoi dung truc tuyen doi voi admin -->
+			<?php if($_SESSION['status'] == 3){
+				echo '<li class="static">SYSTEM</li>';
+				while($obj = $sql_sys->fetch_object()){ 
 					$id = $obj->account_id;
 					$id_user = $mysqli->query("SELECT * FROM `account_info` WHERE `id` = $id LIMIT 1");
 					$obj_name = $id_user->fetch_object();
 			?>
-					<li><a href="#fakelink">
+					<li><a href="#">
 						<span class="user-status success"></span>
 						<img src="assets/img/avatar/<?php echo $obj_name->avatar;?>" class="ava-sidebar img-circle" alt="Avatar">
 						<?php echo $obj_name->fullname;?>
@@ -224,6 +270,7 @@
 					</a></li>
 			<?php
 				}
+			}
 			?>
 		</ul>
 	  </div>

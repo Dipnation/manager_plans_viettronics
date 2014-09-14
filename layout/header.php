@@ -27,6 +27,8 @@
 		<link href="assets/plugins/datepicker/datepicker.min.css" rel="stylesheet">
 		<link href="assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
 		<link href="assets/plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet">
+		
+		<link href="assets/plugins/datatable/css/dataTables.tableTools.css" rel="stylesheet">
 		<link href="assets/plugins/morris-chart/morris.min.css" rel="stylesheet">
 
 		

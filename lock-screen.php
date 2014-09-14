@@ -51,7 +51,7 @@
 				</div>
 				<div class="form-group has-feedback lg left-feedback no-label">
 				  <input type="password" name="password" class="form-control no-border input-lg rounded" placeholder="Enter password" autofocus>
-				  <input type="hidden" name="username" value="<?php echo $_SESSION['account'];?>"
+				  <input type="hidden" name="email" value="<?php echo $_SESSION['email'];?>"
 				  <span class="fa fa-unlock form-control-feedback"></span>
 				</div>
 				<div class="form-group">

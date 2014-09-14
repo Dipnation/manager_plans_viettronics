@@ -2,59 +2,78 @@ $(document).ready(function() {
 	$('#FormExample1').bootstrapValidator();
 	
 	$('#FormExample2').bootstrapValidator({
-		message: 'This value is not valid',
+		message: 'Giá trị nhập không đúng',
 		feedbackIcons: {
-			valid: 'glyphicon glyphicon-ok',
-			invalid: 'glyphicon glyphicon-remove',
-			validating: 'glyphicon glyphicon-refresh'
+			valid: 'fa fa-check',
+			invalid: 'fa fa-exclamation',
+			validating: 'fa fa-refresh'
 		},
 		fields: {
-			username: {
-				message: 'The username is not valid',
+			cal_content: {
+				message: 'Nội dung không đúng',
 				validators: {
 					notEmpty: {
-						message: 'The username is required and can\'t be empty'
+						message: 'Nội dung công việc không được bỏ trống'
 					},
 					stringLength: {
 						min: 6,
-						max: 30,
-						message: 'The username must be more than 6 and less than 30 characters long'
-					},
-					regexp: {
-						regexp: /^[a-zA-Z0-9_\.]+$/,
-						message: 'The username can only consist of alphabetical, number, dot and underscore'
+						max: 200,
+						message: 'Giới hạn từ 6-200 ký tự'
 					}
 				}
 			},
-			email: {
+			account_manager: {
 				validators: {
 					notEmpty: {
-						message: 'The email address is required and can\'t be empty'
-					},
-					emailAddress: {
-						message: 'The input is not a valid email address'
+						message: 'Không được bỏ trống'
 					}
 				}
 			},
-			password: {
+			unit_id: {
 				validators: {
 					notEmpty: {
-						message: 'The password is required and can\'t be empty'
-					},
-					identical: {
-						field: 'confirmPassword',
-						message: 'The password and its confirm are not the same'
+						message: 'Đơn vị không được bỏ trống'
 					}
 				}
 			},
-			confirmPassword: {
+			cal_address: {
 				validators: {
 					notEmpty: {
-						message: 'The confirm password is required and can\'t be empty'
+						message: 'Địa điểm không được bỏ trống'
 					},
-					identical: {
-						field: 'password',
-						message: 'The password and its confirm are not the same'
+					stringLength: {
+						min: 6,
+						max: 200,
+						message: 'Giới hạn từ 6-200 ký tự'
+					}
+				}
+			},
+			cal_join: {
+				validators: {
+					notEmpty: {
+						message: 'Thành phần tham gia không được bỏ trống'
+					},
+					stringLength: {
+						min: 6,
+						max: 200,
+						message: 'Giới hạn từ 6-200 ký tự'
+					}
+				}
+			},
+			date: {
+				validators: {
+					notEmpty: {
+						message: 'Bạn chưa chọn ngày diễn ra'
+					}
+				}
+			},
+			time: {
+				validators: {
+					notEmpty: {
+						message: 'Bạn chưa chọn thời gian diễn ra'
+					},
+					time: {
+						format: 'h:m A'
 					}
 				}
 			}
@@ -113,21 +132,17 @@ $(document).ready(function() {
 			validating: 'glyphicon glyphicon-refresh'
 		},
 		fields: {
-			username: {
-				message: 'The username is not valid',
+			cal_content: {
+				message: 'Nội dung không đúng',
 				validators: {
 					notEmpty: {
-						message: 'The username is required and can\'t be empty'
+						message: 'Nội dung không được bỏ trống'
 					},
 					stringLength: {
 						min: 6,
-						max: 30,
-						message: 'The username must be more than 6 and less than 30 characters long'
+						max: 200,
+						message: 'Nội dung giới hạn từ 6-200 ký tự'
 					},
-					regexp: {
-						regexp: /^[a-zA-Z0-9_\.]+$/,
-						message: 'The username can only consist of alphabetical, number, dot and underscore'
-					}
 				}
 			},
 			country: {
